@@ -9,7 +9,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 
-from apps.student.models import Student
+from apps.student.models import Student, Course
 
 
 @login_required(login_url="/login/")
@@ -26,6 +26,15 @@ def students(request):
     context = {'students': students}
 
     html_template = loader.get_template('student/students.html')
+    return HttpResponse(html_template.render(context, request))
+
+
+@login_required(login_url="/login/")
+def courses(request):
+    courses = Course.objects.all()
+    context = {'courses': courses}
+
+    html_template = loader.get_template('student/courses.html')
     return HttpResponse(html_template.render(context, request))
 
 

@@ -104,7 +104,7 @@ else:
     }
 
 DATABASES['default'] = dj_database_url.parse(
-    'postgres://xqylqayf:lmPCt90Nn6TQFeP74nvYzSXzVmbvp6ku@silly.db.elephantsql.com/xqylqayf',
+    'postgres://jqrbajyr:GDY7g4Pk4GT93q0YWZ7ufU42NThu1BK7@isabelle.db.elephantsql.com/jqrbajyr',
     conn_max_age=600,
 )
 
