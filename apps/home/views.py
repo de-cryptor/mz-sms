@@ -9,12 +9,23 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 
+from apps.student.models import Student
+
 
 @login_required(login_url="/login/")
 def index(request):
     context = {'segment': 'index'}
 
     html_template = loader.get_template('home/index.html')
+    return HttpResponse(html_template.render(context, request))
+
+
+@login_required(login_url="/login/")
+def students(request):
+    students = Student.objects.all()
+    context = {'students': students}
+
+    html_template = loader.get_template('student/students.html')
     return HttpResponse(html_template.render(context, request))
 
 

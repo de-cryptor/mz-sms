@@ -6,10 +6,10 @@
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="javascript:void(0)" class="simple-text logo-mini">
-                    CT
+                    
                 </a>
                 <a href="javascript:void(0)" class="simple-text logo-normal">
-                    Creative Tim
+                    Manzil
                 </a>
             </div>
             <ul class="nav">
@@ -19,7 +19,7 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="{% if 'icons' in segment %} active {% endif %}">
+                {% comment %} <li class="{% if 'icons' in segment %} active {% endif %}">
                     <a href="/icons.html">
                         <i class="tim-icons icon-atom"></i>
                         <p>Icons</p>
@@ -42,19 +42,19 @@
                         <i class="tim-icons icon-single-02"></i>
                         <p>User Profile</p>
                     </a>
-                </li>
+                </li> {% endcomment %}
                 <li class="{% if 'tables' in segment %} active {% endif %}">
-                    <a href="/tables.html">
+                    <a href="/students">
                         <i class="tim-icons icon-puzzle-10"></i>
-                        <p>Table List</p>
+                        <p>Students List</p>
                     </a>
                 </li>
-                <li class="{% if 'typography' in segment %} active {% endif %}">
+                {% comment %} <li class="{% if 'typography' in segment %} active {% endif %}">
                     <a href="/typography.html">
                         <i class="tim-icons icon-align-center"></i>
                         <p>Typography</p>
                     </a>
-                </li>
+                </li> {% endcomment %}
                 <li>
                     <a href="/rtl.html">
                         <i class="tim-icons icon-world"></i>

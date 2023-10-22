@@ -1,0 +1,59 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card ">
+          <div class="card-header">
+            <h4 class="card-title"> Students List</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table tablesorter " id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>
+                      Manzil ID
+                    </th>
+                    <th>
+                      Student Name
+                    </th>
+                    <th>
+                      Date of Birth
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for student in students %}
+                  <tr>
+                    <td>
+                      {{ student.manzil_id }}
+                    </td>
+                    <td>
+                      {{ student.name }}
+                    </td>
+                    <td>
+                      {{ student.date_of_birth }}
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
