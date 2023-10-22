@@ -13,6 +13,8 @@ urlpatterns = [
 
     path('students', views.students, name='students'),
     path('courses', views.courses, name='courses'),
+    path('courses/<int:course_id>/', views.course_detail, name='course_detail'),
+
 
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),

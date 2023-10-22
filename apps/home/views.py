@@ -8,8 +8,9 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
+from django.db.models import Count
 
-from apps.student.models import Student, Course
+from apps.student.models import Student, Course, StudentCourse
 
 
 @login_required(login_url="/login/")
@@ -31,10 +32,18 @@ def students(request):
 
 @login_required(login_url="/login/")
 def courses(request):
-    courses = Course.objects.all()
+    courses = Course.objects.all().annotate(student_count=Count('studentcourse'))
     context = {'courses': courses}
 
     html_template = loader.get_template('student/courses.html')
+    return HttpResponse(html_template.render(context, request))
+
+@login_required(login_url="/login/")
+def course_detail(request, course_id):
+    course = Course.objects.get(pk=course_id)
+    students = StudentCourse.objects.filter(course=course).select_related('student')
+    context = {'course': course, 'students': students}
+    html_template = loader.get_template('student/course_detail.html')
     return HttpResponse(html_template.render(context, request))
 
 
