@@ -103,8 +103,13 @@ else:
         }
     }
 
+# DATABASES['default'] = dj_database_url.parse(
+#     'postgres://jqrbajyr:GDY7g4Pk4GT93q0YWZ7ufU42NThu1BK7@isabelle.db.elephantsql.com/jqrbajyr',
+#     conn_max_age=600,
+# )
+
 DATABASES['default'] = dj_database_url.parse(
-    'postgres://jqrbajyr:GDY7g4Pk4GT93q0YWZ7ufU42NThu1BK7@isabelle.db.elephantsql.com/jqrbajyr',
+    'postgres://jatin.iiita:jC6nHyVIdv8a@ep-white-rain-10640431.us-east-2.aws.neon.tech/neondb',
     conn_max_age=600,
 )
 
