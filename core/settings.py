@@ -4,6 +4,7 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 import os, environ
+import dj_database_url
 
 env = environ.Env(
     # set casting, default value
@@ -100,6 +101,11 @@ else:
             'NAME': 'db.sqlite3',
         }
     }
+
+DATABASES['default'] = dj_database_url.parse(
+    'postgres://xqylqayf:lmPCt90Nn6TQFeP74nvYzSXzVmbvp6ku@silly.db.elephantsql.com/xqylqayf',
+    conn_max_age=600,
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
