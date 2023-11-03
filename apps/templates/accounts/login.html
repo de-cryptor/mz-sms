@@ -15,7 +15,7 @@
                         
                         <div class="card-header text-center py-4">
                             <h4 class="title">
-                                Sign IN
+                                Login to Manzil Dashboard
                             </h4>
 
                             <h6 class="card-category">
@@ -23,7 +23,7 @@
                                   <span class="text-danger">{{ msg | safe }}</span>
                                 {% else %}
                                 <span>
-                                  Add your credentials
+                                  Enter your valid credentials
                                 </span>
                                 {% endif %}  
                             </h6>
@@ -59,9 +59,9 @@
                                 
                                 <br /><br />
 
-                                <p>
+                                {% comment %} <p>
                                     Don't have an account? <a href="{% url 'register' %}" class="text-primary">Register</a>                            
-                                </p>
+                                </p> {% endcomment %}
                             </div>
 
                         </form>

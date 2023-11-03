@@ -14,7 +14,14 @@ from apps.student.models import *
 
 @login_required(login_url="/login/")
 def index(request):
-    context = {'segment': 'index'}
+    context = {
+        'segment': 'index',
+        'students': Student.objects.count(),
+        'courses': Course.objects.count(),
+        'sessions': Session.objects.count(),
+        'scholarships': Scholarship.objects.count(),
+        'events': ManzilEvent.objects.count(),
+    }
 
     html_template = loader.get_template('home/index.html')
     return HttpResponse(html_template.render(context, request))
@@ -23,7 +30,10 @@ def index(request):
 @login_required(login_url="/login/")
 def students(request):
     students = Student.objects.all()
-    context = {'students': students}
+    context = {
+        'segment': 'students',
+        'students': students,
+    }
 
     html_template = loader.get_template('student/students.html')
     return HttpResponse(html_template.render(context, request))
@@ -35,6 +45,7 @@ def student_detail(request, student_id):
     scholarships = ScholarshipEnrollment.objects.filter(student=student)
     events = ManzilEventAttendee.objects.filter(student=student)
     context = {
+        'segment': 'students',
         'student': student,
         'sessions': sessions,
         'scholarships': scholarships,
@@ -46,7 +57,10 @@ def student_detail(request, student_id):
 @login_required(login_url="/login/")
 def courses(request):
     courses = Course.objects.all().annotate(student_count=Count('studentcourse'))
-    context = {'courses': courses}
+    context = {
+        'segment': 'courses',
+        'courses': courses,
+    }
 
     html_template = loader.get_template('student/courses.html')
     return HttpResponse(html_template.render(context, request))
@@ -55,14 +69,21 @@ def courses(request):
 def course_detail(request, course_id):
     course = Course.objects.get(pk=course_id)
     students = StudentCourse.objects.filter(course=course).select_related('student')
-    context = {'course': course, 'students': students}
+    context = {
+        'segment': 'courses',
+        'course': course,
+        'students': students,
+    }
     html_template = loader.get_template('student/course_detail.html')
     return HttpResponse(html_template.render(context, request))
 
 @login_required(login_url="/login/")
 def sessions(request):
     sessions = Session.objects.all().annotate(student_count=Count('sessionenrollment'))
-    context = {'sessions': sessions}
+    context = {
+        'segment': 'sessions',
+        'sessions': sessions,
+    }
 
     html_template = loader.get_template('student/sessions.html')
     return HttpResponse(html_template.render(context, request))
@@ -71,14 +92,21 @@ def sessions(request):
 def session_detail(request, session_id):
     session = Session.objects.get(id=session_id)
     students = SessionEnrollment.objects.filter(session=session).select_related('student')
-    context = {'session': session, 'students': students}
+    context = {
+        'segment': 'sessions',
+        'session': session,
+        'students': students,
+    }
     html_template = loader.get_template('student/session_detail.html')
     return HttpResponse(html_template.render(context, request))
 
 @login_required(login_url="/login/")
 def scholarships(request):
     scholarships = Scholarship.objects.all().annotate(student_count=Count('scholarshipenrollment'))
-    context = {'scholarships': scholarships}
+    context = {
+        'segment': 'scholarships',
+        'scholarships': scholarships,
+    }
 
     html_template = loader.get_template('student/scholarships.html')
     return HttpResponse(html_template.render(context, request))
@@ -87,14 +115,21 @@ def scholarships(request):
 def scholarship_detail(request, scholarship_id):
     scholarship = Scholarship.objects.get(id=scholarship_id)
     students = ScholarshipEnrollment.objects.filter(scholarship=scholarship).select_related('student')
-    context = {'scholarship': scholarship, 'students': students}
+    context = {
+        'segment': 'scholarships',
+        'scholarship': scholarship,
+        'students': students,
+    }
     html_template = loader.get_template('student/scholarship_detail.html')
     return HttpResponse(html_template.render(context, request))
 
 @login_required(login_url="/login/")
 def events(request):
     events = ManzilEvent.objects.all().annotate(student_count=Count('manzileventattendee'))
-    context = {'events': events}
+    context = {
+        'segment': 'events',
+        'events': events,
+    }
 
     html_template = loader.get_template('student/events.html')
     return HttpResponse(html_template.render(context, request))
