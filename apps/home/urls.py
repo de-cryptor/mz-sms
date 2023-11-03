@@ -12,8 +12,16 @@ urlpatterns = [
     path('', views.index, name='home'),
 
     path('students', views.students, name='students'),
+    path('students/<int:student_id>/', views.student_detail, name='student_detail'),
     path('courses', views.courses, name='courses'),
     path('courses/<int:course_id>/', views.course_detail, name='course_detail'),
+    path('sessions', views.sessions, name='sessions'),
+    path('sessions/<int:session_id>/', views.session_detail, name='session_detail'),
+    path('scholarships', views.scholarships, name='scholarships'),
+    # path('courses/<int:course_id>/', views.course_detail, name='course_detail'),
+    path('events', views.events, name='events'),
+    # path('courses/<int:course_id>/', views.course_detail, name='course_detail'),
+
 
 
     # Matches any html file

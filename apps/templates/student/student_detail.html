@@ -1,0 +1,149 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card ">
+          <div class="card-header">
+            <h4 class="card-title"> Sessions List For Student : <b>{{ student.name }} </b> </h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table tablesorter " id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>
+                      Session Name
+                    </th>
+                    <th>
+                      Start Date
+                    </th>
+                    <th>
+                      End Date
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for session in sessions %}
+                  <tr>
+                    <td>
+                      {{ session.session.name }}
+                    </td>
+                    <td>
+                      {{ session.session.start_date }}
+                    </td>
+                    <td>
+                      {{ session.session.end_date }}
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="card ">
+          <div class="card-header">
+            <h4 class="card-title"> Scholarships List For Student : <b>{{ student.name }} </b> </h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table tablesorter " id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>
+                      Scholarship ID
+                    </th>
+                    <th>
+                      Scholarship Name
+                    </th>
+                    <th>
+                      Scholarship Date
+                    </th>
+                    <th>
+                      Scholarship Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for scholarship in scholarships %}
+                  <tr>
+                    <td>
+                      {{ scholarship.scholarship.scholarship_id }}
+                    </td>
+                    <td>
+                      {{ scholarship.scholarship.name }}
+                    </td>
+                    <td>
+                      {{ scholarship.date }}
+                    </td>
+                    <td>
+                      {{ scholarship.scholarship.description }}
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="card ">
+          <div class="card-header">
+            <h4 class="card-title"> Events Attended by Student : <b>{{ student.name }} </b> </h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table tablesorter " id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>
+                      Event Name
+                    </th>
+                    <th>
+                      Event Date
+                    </th>
+                    <th>
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for event in events %}
+                  <tr>
+                    <td>
+                      {{ event.event.name }}
+                    </td>
+                    <td>
+                      {{ event.event.date }}
+                    </td>
+                    <td>
+                      {{ event.event.description }}
+                    </td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

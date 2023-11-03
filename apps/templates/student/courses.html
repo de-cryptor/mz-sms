@@ -25,9 +25,6 @@
                     <th>
                       Course Name
                     </th>
-                    <th>
-                      Student Count
-                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -38,9 +35,6 @@
                     </td>
                     <td>
                       {{ course.name }}
-                    </td>
-                    <td>
-                      <a href="{% url 'course_detail' course_id=course.id %}"> View </a> : {{ course.student_count }} 
                     </td>
                   </tr>
                 {% endfor %}

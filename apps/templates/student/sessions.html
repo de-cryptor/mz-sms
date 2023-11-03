@@ -12,7 +12,7 @@
       <div class="col-md-12">
         <div class="card ">
           <div class="card-header">
-            <h4 class="card-title"> Students List</h4>
+            <h4 class="card-title"> Sessions List</h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -20,27 +20,39 @@
                 <thead class=" text-primary">
                   <tr>
                     <th>
-                      Manzil ID
+                      Session Name
                     </th>
                     <th>
-                      Student Name
+                      Session Mode
                     </th>
                     <th>
-                      Date of Birth
+                      Start Date
+                    </th>
+                    <th>
+                      End Date
+                    </th>
+                    <th>
+                      Student Count
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                {% for student in students %}
+                {% for session in sessions %}
                   <tr>
                     <td>
-                      <a href="{% url 'student_detail' student_id=student.id %}"> <b> {{ student.manzil_id }} </b> </a> 
+                      {{ session.name }}
                     </td>
                     <td>
-                      {{ student.name }}
+                      {{ session.mode }}
                     </td>
                     <td>
-                      {{ student.date_of_birth }}
+                      {{ session.start_date }}
+                    </td>
+                    <td>
+                      {{ session.end_date }}
+                    </td>
+                    <td>
+                      <a href="{% url 'session_detail' session_id=session.id %}"> View Students : {{ session.student_count }} </a> 
                     </td>
                   </tr>
                 {% endfor %}

@@ -12,7 +12,7 @@
       <div class="col-md-12">
         <div class="card ">
           <div class="card-header">
-            <h4 class="card-title"> Students List</h4>
+            <h4 class="card-title"> Students List For Session : <b>{{ session.name }} </b> </h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -34,13 +34,13 @@
                 {% for student in students %}
                   <tr>
                     <td>
-                      <a href="{% url 'student_detail' student_id=student.id %}"> <b> {{ student.manzil_id }} </b> </a> 
+                      {{ student.student.manzil_id }}
                     </td>
                     <td>
-                      {{ student.name }}
+                      {{ student.student.name }}
                     </td>
                     <td>
-                      {{ student.date_of_birth }}
+                      {{ student.student.date_of_birth }}
                     </td>
                   </tr>
                 {% endfor %}
