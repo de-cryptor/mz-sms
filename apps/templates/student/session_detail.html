@@ -34,7 +34,7 @@
                 {% for student in students %}
                   <tr>
                     <td>
-                      {{ student.student.manzil_id }}
+                      <a href="{% url 'student_detail' student_id=student.student.id %}"> <b> {{ student.student.manzil_id }} </b> </a> 
                     </td>
                     <td>
                       {{ student.student.name }}
