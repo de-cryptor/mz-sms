@@ -32,7 +32,7 @@
                       End Date
                     </th>
                     <th>
-                      Students
+                      Student Count
                     </th>
                   </tr>
                 </thead>
@@ -40,7 +40,7 @@
                 {% for session in sessions %}
                   <tr>
                     <td>
-                      <a href="{% url 'session_detail' session_id=session.id %}"> {{ session.name }} </a>
+                      {{ session.name }}
                     </td>
                     <td>
                       {{ session.mode }}
@@ -52,7 +52,7 @@
                       {{ session.end_date }}
                     </td>
                     <td>
-                      <a href="{% url 'session_detail' session_id=session.id %}"> {{ session.student_count }} </a> 
+                      <a href="{% url 'session_detail' session_id=session.id %}"> View Students : {{ session.student_count }} </a> 
                     </td>
                   </tr>
                 {% endfor %}
