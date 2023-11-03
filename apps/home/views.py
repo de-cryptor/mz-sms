@@ -84,6 +84,14 @@ def scholarships(request):
     return HttpResponse(html_template.render(context, request))
 
 @login_required(login_url="/login/")
+def scholarship_detail(request, scholarship_id):
+    scholarship = Scholarship.objects.get(id=scholarship_id)
+    students = ScholarshipEnrollment.objects.filter(scholarship=scholarship).select_related('student')
+    context = {'scholarship': scholarship, 'students': students}
+    html_template = loader.get_template('student/scholarship_detail.html')
+    return HttpResponse(html_template.render(context, request))
+
+@login_required(login_url="/login/")
 def events(request):
     events = ManzilEvent.objects.all().annotate(student_count=Count('manzileventattendee'))
     context = {'events': events}

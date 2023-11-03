@@ -18,7 +18,7 @@ urlpatterns = [
     path('sessions', views.sessions, name='sessions'),
     path('sessions/<int:session_id>/', views.session_detail, name='session_detail'),
     path('scholarships', views.scholarships, name='scholarships'),
-    # path('courses/<int:course_id>/', views.course_detail, name='course_detail'),
+    path('scholarships/<int:scholarship_id>/', views.scholarship_detail, name='scholarship_detail'),
     path('events', views.events, name='events'),
     # path('courses/<int:course_id>/', views.course_detail, name='course_detail'),
 

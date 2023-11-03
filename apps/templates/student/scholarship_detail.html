@@ -12,41 +12,35 @@
       <div class="col-md-12">
         <div class="card ">
           <div class="card-header">
-            <h4 class="card-title"> Scholarships List</h4>
+            <h4 class="card-title"> Students List For Scholarship : <b>{{ scholarship.name }} </b> </h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table tablesorter " id="">
                 <thead class=" text-primary">
                   <tr>
-                  <th>
-                      Scholarship ID
+                    <th>
+                      Manzil ID
                     </th>
                     <th>
-                      Scholarship Name
+                      Student Name
                     </th>
                     <th>
-                      Students
-                    </th>
-                    <th>
-                      Scholarship Description
+                      Date of Birth
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                {% for scholarship in scholarships %}
+                {% for student in students %}
                   <tr>
                     <td>
-                      <a href="{% url 'scholarship_detail' scholarship_id=scholarship.id %}"> {{ scholarship.scholarship_id }} </a>
+                      {{ student.student.manzil_id }}
                     </td>
                     <td>
-                      {{ scholarship.name }}
+                      {{ student.student.name }}
                     </td>
                     <td>
-                      <a href="{% url 'scholarship_detail' scholarship_id=scholarship.id %}"> {{ scholarship.student_count }} </a>
-                    </td>
-                    <td>
-                      {{ scholarship.description }}
+                      {{ student.student.date_of_birth }}
                     </td>
                   </tr>
                 {% endfor %}
