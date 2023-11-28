@@ -12,7 +12,14 @@
       <div class="col-md-12">
         <div class="card ">
           <div class="card-header">
-            <h4 class="card-title"> Sessions List For Student : <b>{{ student.name }} </b> </h4>
+            <h2 class="card-title"><b>{{ student.name }} </b> </h2>
+            <h4 class="card-title"><b>Manzil ID: </b> {{student.manzil_id}}</h4>
+            {% if student.biography %}
+              <h4 class="card-title"><b>About: </b>{{ student.biography }}</h4>
+            {% endif %}
+            <br>
+            <br>
+            <h3 class="card-title"> Sessions List </b> </h3>
           </div>
           <div class="card-body">
             <div class="table-responsive" style="overflow:auto;">
@@ -54,7 +61,7 @@
       <div class="col-md-12">
         <div class="card ">
           <div class="card-header">
-            <h4 class="card-title"> Scholarships List For Student : <b>{{ student.name }} </b> </h4>
+            <h3 class="card-title"> Scholarships List </h3>
           </div>
           <div class="card-body">
             <div class="table-responsive" style="overflow:auto;">
@@ -102,7 +109,7 @@
       <div class="col-md-12">
         <div class="card ">
           <div class="card-header">
-            <h4 class="card-title"> Events Attended by Student : <b>{{ student.name }} </b> </h4>
+            <h3 class="card-title"> Events Attended</h3>
           </div>
           <div class="card-body">
             <div class="table-responsive" style="overflow:auto;">
